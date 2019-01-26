@@ -12,6 +12,7 @@
         android:layout_width="100dp"
         android:src="@drawable/appicon"
         android:layout_marginTop="20dp"
+        android:id="@+id/iconI"
         android:layout_gravity="center"
 
         android:layout_height="100dp" />

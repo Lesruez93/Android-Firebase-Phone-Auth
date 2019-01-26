@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,8 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button verifyButton;
     private Button sendButton;
     private TextView resendButton;
-    // private Button signoutButton;
-    // private TextView statusText;
+
     private String uid;
     private String country_code;
 
@@ -53,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks
             verificationCallbacks;
     private PhoneAuthProvider.ForceResendingToken resendToken;
+
 
     private FirebaseAuth fbAuth;
 
@@ -62,14 +62,19 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        fbAuth = FirebaseAuth.getInstance();
+
 
         phoneText = findViewById(R.id.phoneText);
         codeText = findViewById(R.id.codeText);
         verifyButton = findViewById(R.id.verifyButton);
         sendButton = findViewById(R.id.sendButton);
         resendButton = findViewById(R.id.resendButton);
+        ImageView icon = findViewById(R.id.iconI);
         Button login = findViewById(R.id.btnProceed);
         country_code = "+263";
+        FirebaseAuth.AuthStateListener mAuthListener;
+
 
         login.setOnClickListener(view -> {
             //  Toast.makeText(LoginActivity.this, "Please wait.....", Toast.LENGTH_SHORT).show();
@@ -86,6 +91,11 @@ public class LoginActivity extends AppCompatActivity {
             } catch (InterruptedException | IOException e) {
                 e.printStackTrace();
             }
+        });
+
+
+        icon.setOnClickListener((View view) -> {
+         anon();
         });
         sendButton.setOnClickListener((View view) -> {
             try {
@@ -139,9 +149,21 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    private void anon() {
+
+        fbAuth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                goToHome();
+            }
+        });
+    }
+
+
+
     private void goToHome() {
         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
@@ -199,7 +221,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Invalid credential", Toast.LENGTH_SHORT).show();
                         } else if (e instanceof FirebaseTooManyRequestsException) {
                             // SMS quota exceeded
-                            Log.d(TAG, "SMS Quota exceeded.");
+                            Toast.makeText(LoginActivity.this, "Limit Reached Try Again In a few Hours", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -208,9 +230,10 @@ public class LoginActivity extends AppCompatActivity {
 
                         phoneVerificationId = verificationId;
                         resendToken = token;
-                        verifyButton.setEnabled(true);
+                        verifyButton.setVisibility(View.VISIBLE);
+                        codeText.setVisibility(View.VISIBLE);
                         sendButton.setEnabled(false);
-                        resendButton.setEnabled(true);
+                        resendButton.setVisibility(View.VISIBLE);
 
                         process_dialog.dismiss();
                     }
