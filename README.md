@@ -25,7 +25,7 @@ Download your Firebase configuration files, GoogleService-Info.plist for iOS and
 
 
 
-![screenshot](https://github.com/Lesruez93/Ionic-Cordova-Firebase-Phone-Auth-Android-and-IOS-/blob/master/screenshots/screen1.jpeg)
+![screenshot](https://github.com/Lesruez93/Android-Firebase-Phone-Auth/blob/master/screenshots/screen1.jpeg)
 
 
 
@@ -34,4 +34,4 @@ Download your Firebase configuration files, GoogleService-Info.plist for iOS and
 
 
 
-![screenshot](https://github.com/Lesruez93/Ionic-Cordova-Firebase-Phone-Auth-Android-and-IOS-/blob/master/screenshots/screen2.jpeg)
+![screenshot](https://github.com/Lesruez93/Android-Firebase-Phone-Auth/blob/master/screenshots/screen2.jpeg)
