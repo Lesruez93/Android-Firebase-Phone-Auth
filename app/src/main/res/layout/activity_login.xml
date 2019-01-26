@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:background="@drawable/paper_background"
+
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_width="100dp"
+        android:src="@drawable/appicon"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+
+        android:layout_height="100dp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp">
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/paper_background"
+
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="30dp"
+                android:layout_marginTop="10dp">
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Phone Auth"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/phoneLayout"
+                    android:background="@drawable/edxlogin"
+                    android:padding="2dp">
+
+                    <EditText
+                        android:id="@+id/text_countrycode"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/emptybtn"
+                        android:focusable="false"
+
+                        android:focusableInTouchMode="false"
+                        android:hint="Code"
+                        android:paddingLeft="8dp"
+                        android:text="+263"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/phoneText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:ems="10"
+                        android:background="@drawable/emptybtn"
+                        android:hint="Phone number"
+                        android:inputType="phone"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/sendButton"
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/logbtn"
+                    android:text="Send Code"
+                    android:textColor="#fff"
+                    />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/resendButton"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="resendCode"
+                    android:text="Resend Code"
+
+                    android:layout_gravity="center"
+
+                    android:textColor="@color/colorPrimaryDark"
+                    />
+
+                <EditText
+                    android:paddingLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/codeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:visibility="gone"
+                    android:hint="Code"
+                    android:background="@drawable/edxlogin"
+                    android:inputType="number"
+                    android:layout_gravity="center"
+                    />
+
+
+                <Button
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/verifyButton"
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:text="Verify Code"
+                    android:onClick="verifyCode"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:background="@drawable/logbtn"
+                    android:textColor="#fff"/>
+
+
+                <EditText
+                    android:id="@+id/text_uid"
+                    android:ems="10"
+                    android:visibility="gone"
+                    android:hint="Demo Code enter ff"
+                    android:text="wedfghhkkjggjk"
+                    android:inputType="text"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edxlogin"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/btnProceed"
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:visibility="gone"
+                    android:background="@drawable/logbtn"
+                    android:text="login"
+
+                    android:textColor="#fff"
+                    />
+
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+
+
+</LinearLayout>
+
+
