@@ -6,8 +6,6 @@ Requires a real device :iphone: NB emulator/simulator wont work
 
 Tested and fully working  :muscle: ..
 
-*Implemented in the following Apps*
-
 
 
 
@@ -27,7 +25,7 @@ Download your Firebase configuration files, GoogleService-Info.plist for iOS and
 
 
 
-![screenshot](https://github.com/Lesruez93/Ionic-Cordova-Firebase-Phone-Auth-Android-and-IOS-/blob/master/screenshots/screen1.jpg)
+![screenshot](https://github.com/Lesruez93/Ionic-Cordova-Firebase-Phone-Auth-Android-and-IOS-/blob/master/screenshots/screen1.jpeg)
 
 
 
@@ -36,4 +34,4 @@ Download your Firebase configuration files, GoogleService-Info.plist for iOS and
 
 
 
-![screenshot](https://github.com/Lesruez93/Ionic-Cordova-Firebase-Phone-Auth-Android-and-IOS-/blob/master/screenshots/screen2.jpg)
+![screenshot](https://github.com/Lesruez93/Ionic-Cordova-Firebase-Phone-Auth-Android-and-IOS-/blob/master/screenshots/screen2.jpeg)
