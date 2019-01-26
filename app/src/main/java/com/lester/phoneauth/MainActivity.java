@@ -29,16 +29,15 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
-            text.setText(firebaseAuth.getCurrentUser().getUid());
+            text.setText("You are logged in you Uid is: "+firebaseAuth.getCurrentUser().getUid());
 
-            Log.e("Inn","inn");
+
         } else {
 
-                       Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
              startActivity(intent);
-            Log.e("not","OUT");
         }
 
 //    Log.e("uid",this.uid);

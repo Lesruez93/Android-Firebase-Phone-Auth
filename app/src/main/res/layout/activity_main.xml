@@ -1,37 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
 
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:background="@drawable/paper_background"
+
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
         >
 
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
 
-        <TextView
-            android:id="@+id/txtView"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:cardCornerRadius="4dp">
+
+            <TextView
+                android:id="@+id/txtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="19sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.v7.widget.CardView>
 
         <Button
             android:id="@+id/signOut"
             android:layout_width="170dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginTop="40dp"
             android:layout_gravity="center"
+
             android:background="@drawable/logbtn"
             android:gravity="center"
             android:text="Sign Out"
             android:textColor="#fff" />
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

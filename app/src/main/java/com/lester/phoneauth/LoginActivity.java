@@ -70,33 +70,14 @@ public class LoginActivity extends AppCompatActivity {
         verifyButton = findViewById(R.id.verifyButton);
         sendButton = findViewById(R.id.sendButton);
         resendButton = findViewById(R.id.resendButton);
-        ImageView icon = findViewById(R.id.iconI);
-        Button login = findViewById(R.id.btnProceed);
         country_code = "+263";
         FirebaseAuth.AuthStateListener mAuthListener;
 
 
-        login.setOnClickListener(view -> {
-            //  Toast.makeText(LoginActivity.this, "Please wait.....", Toast.LENGTH_SHORT).show();
-            try {
-                if (!isConnected()) {
-                    //   Toast.makeText(LoginActivity.this, "Network problem", Toast.LENGTH_SHORT).show();
-                    Snackbar.make(view, "Sorry there was a problem with you network", Snackbar.LENGTH_LONG)
-                            .setAction("Check Internet", null).show();
-                }
-                else {
-       goToHome();
-
-                }
-            } catch (InterruptedException | IOException e) {
-                e.printStackTrace();
-            }
-        });
 
 
-        icon.setOnClickListener((View view) -> {
-         anon();
-        });
+
+
         sendButton.setOnClickListener((View view) -> {
             try {
                 if (!isConnected()) {
@@ -116,10 +97,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         // signoutButton = (Button) findViewById(R.id.signoutButton);
 
-        verifyButton.setEnabled(false);
-        resendButton.setEnabled(false);
-        //  signoutButton.setEnabled(false);
-        // statusText.setText("Signed Out");
+
 
 
 
@@ -149,15 +127,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void anon() {
 
-        fbAuth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                goToHome();
-            }
-        });
-    }
 
 
 
@@ -207,8 +177,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         //   signoutButton.setEnabled(true);
                         //   statusText.setText("Signed In");
-                        resendButton.setEnabled(false);
-                        verifyButton.setEnabled(false);
+
                         codeText.setText("");
                         signInWithPhoneAuthCredential(credential);
                     }
@@ -264,15 +233,13 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            //  signoutButton.setEnabled(true);
                             codeText.setText("");
-                            // statusText.setText("Signed In");
-                            resendButton.setEnabled(false);
-                            verifyButton.setEnabled(false);
+
+                          goToHome();
                             FirebaseUser user = task.getResult().getUser();
-                            //   TextView mtext = (TextView) findViewById(R.id.text_creds);
+
                             uid = user.getUid();
-                            //  mtext.setText(uid);
+
                             process_dialog.dismiss();
 
                         } else {
@@ -298,6 +265,13 @@ public class LoginActivity extends AppCompatActivity {
                 this,
                 verificationCallbacks,
                 resendToken);
+        MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
+                .title("Sending code")
+                .content("Please wait")
+                .progress(true, 0);
+
+        process_dialog = builder.build();
+        process_dialog.show();
     }
     public boolean isConnected() throws InterruptedException, IOException
     {
